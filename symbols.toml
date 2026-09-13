@@ -1,0 +1,11 @@
+# Armored Core (USA) — progressive symbol map (partial decomp)
+# Discover → label here → manipulate via PSX_FN_* (tools/sync_symbols.py).
+# Gate emit=true only when the entry is safe to own for AOT / host hooks.
+# See psxrecomp/docs/SYMBOLS.md.
+
+[[func]]
+pc = 0x80011E6C
+name = "BootEntry"
+emit = false
+status = "guessed"
+note = "SYSTEM.CNF / EXE entry PC (probe seed)"
