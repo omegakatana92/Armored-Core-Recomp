@@ -1,0 +1,56 @@
+format_version = 5
+id = "armoredcore.mouse-aim"
+version = "1.0.0"
+name = "Mouse Aim"
+author = "OSad"
+description = "Aim with the mouse: horizontal movement turns the mech, vertical movement looks up and down. Press F10 in a mission to capture or release the mouse."
+license = "GPL-3.0-or-later"
+resolver = "declarative"
+save_compatibility = "shared"
+
+[[target]]
+game_id = "SCUS-94182"
+
+[[feature]]
+id = "mouse-aim"
+name = "Mouse Aim"
+description = "Press F10 during a mission to capture the mouse and aim with it; press F10 again (or switch windows) to release it. Bind firing and boosting to mouse buttons in the Controls page (Mouse1 = left, Mouse3 = right)."
+group = "Controls"
+default_enabled = true
+
+[[option]]
+feature = "mouse-aim"
+id = "sensitivity"
+label = "Sensitivity (%)"
+description = "Overall mouse sensitivity. 100 is about 0.09 degrees per mouse count."
+group = "Controls"
+type = "integer"
+min = 10
+max = 1000
+step = 5
+default = 100
+
+[[option]]
+feature = "mouse-aim"
+id = "vertical_sensitivity"
+label = "Vertical sensitivity (% of horizontal)"
+description = "How fast looking up and down is compared to turning. 100 means the same speed."
+group = "Controls"
+type = "integer"
+min = 10
+max = 1000
+step = 5
+default = 100
+
+[[option]]
+feature = "mouse-aim"
+id = "invert_y"
+label = "Invert vertical"
+description = "Moving the mouse up looks down."
+group = "Controls"
+type = "boolean"
+default = "false"
+
+[[plugin]]
+feature = "mouse-aim"
+id = "armoredcore.mouse-aim"
