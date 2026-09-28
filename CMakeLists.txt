@@ -43,6 +43,17 @@ psxrecomp_add_game_runtime(psx-runtime
     CODEGEN_SETUP_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/codegen_setup.c"
 )
 
+# --- Mouse aim plugin (mods/preloaded/packages/armoredcore.mouse-aim) ------
+# Trusted plugins are compiled into the executable; the mod package only
+# switches them on. Add the source to every runtime executable this project
+# builds (the PGXP sibling exists only in some configurations).
+foreach(_AC_TARGET psx-runtime psx-runtime-pgxp)
+    if(TARGET ${_AC_TARGET})
+        target_sources(${_AC_TARGET} PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/mouse_aim.c")
+    endif()
+endforeach()
+
 foreach(_PSX_RUNTIME_CONFIG game.toml game_options.toml)
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${_PSX_RUNTIME_CONFIG}")
         add_custom_command(TARGET psx-runtime POST_BUILD
